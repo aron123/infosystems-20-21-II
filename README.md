@@ -1,24 +1,33 @@
-# Informatikai rendszerek építése 2020/21 II. félév
+# JSON of products
 
-## 1. hét
-Szoftveres követelmények ismertetése, telepítése.
+The `products.json` file contains an array with product objects.
 
-- [Szoftverkövetelmények](https://github.com/aron123/infosystems-20-21-II/tree/week01/requirements)
+## Schema
+```json
+{
+      "id": "0130350591",
+      "title": "Le Creuset Kiwi (Green) Butter Dish Stoneware",
+      "description": "Each piece of Le Creuset dinnerware is crafted in the same careful process as all Le Creuset stoneware - with a colorful, durable exterior enamel that matches other stoneware flawlessly while protecting from utensil marks and scratches. Every plate, bowl and mug is designed to complement any collection of stoneware, and is finished with Le Creuset's signature three-ring accent along the exterior.",
+      "price": "14.05",
+      "imgUrl": "http://ecx.images-amazon.com/images/I/21zcx6RCDoL.jpg",
+      "brand": null,
+      "categories": [
+         "Home & Kitchen",
+         "Kitchen & Dining",
+         "Dining & Entertaining",
+         "Serveware",
+         "Butter Dishes"
+      ]
+   },
+```
 
-## 2. hét
-Node Package Manager (npm) használata, Bootstrap telepítése, grid rendszer használata, sztring interpoláció, strukturális direktívák (`*ngIf`, `*ngFor`).
+- `id`: ID of the product.
+- `title`: Name of the product.
+- `description`: Description of the product.
+- `price`: Price in US dollars.
+- `imgUrl`: URL of the product image.
+- `brand`: Brand name.
+- `categories`: List of categories the product belongs to.
 
-- Forráskódok:
-  - [Egy komponens programozása](https://github.com/aron123/infosystems-20-21-II/tree/week02/intro) 
-
-- Egyéb anyagok:
-  - [Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
-  - [Emmet abbreviation](https://docs.emmet.io/abbreviations/syntax/)
-  - [Emmet in Visual Studio Code](https://code.visualstudio.com/docs/editor/emmet)
-
-## 3. hét
-TypeScript típusosságának használata, komponensek létrehozása (`ng generate` parancs), komponensek közötti együttműködés (`@Input`, `@Output` dekorátorok, `EventEmitter` osztály használata).
-
-- Forráskódok:
-  - [Szavazás](https://github.com/aron123/infosystems-20-21-II/tree/week03/votes)
-  - [Szemantikus verziókezelés](https://github.com/aron123/infosystems-20-21-II/tree/week03/semantic-versioning)
+## Source
+The `products.json` file is based on [Amazon product dataset](http://jmcauley.ucsd.edu/data/amazon/links.html) collected by Julian McAuley.
