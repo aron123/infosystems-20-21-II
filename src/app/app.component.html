@@ -4,34 +4,17 @@
       <h4>Source code version</h4>
     </div>
   </div>
-  <div class="row">
+  <div class="row mt-2">
     <div class="col-md-12 font-weight-bold">
       Version {{major}}.{{minor}}.{{patch}}
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-2">
-      <button class="btn btn-sm btn-danger" (click)="incrementMajor()">New major version</button>
-    </div>
-    <div class="col-md-2">
-      <button class="btn btn-sm btn-primary" (click)="incrementMinor()">New minor version</button>
-    </div>
-    <div class="col-md-2">
-      <button class="btn btn-sm btn-success" (click)="incrementPatch()">New patch version</button>
-    </div>
-  </div>
+  <app-control (majorIncremented)="incrementMajor()" (minorIncremented)="incrementMinor()"
+    (patchIncremented)="incrementPatch()"></app-control>
   <div class="row">
     <div class="col-md-12">
       <h5>Changelog:</h5>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <ul>
-        <li *ngFor="let entry of changelog">
-          {{entry.type}} has been incremented from {{entry.old}} to {{entry.new}}
-        </li>
-      </ul>
+      <app-changelog [changelog]="changelog"></app-changelog>
     </div>
   </div>
 </div>
