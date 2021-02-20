@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Person } from './vote/person.type';
 
 @Component({
   selector: 'app-root',
@@ -6,23 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'infosystems';
-  agreeCount = 0;
-  disagreeCount = 0;
-  people = [
+  question = 'Should mankind colonize the Universe?';
+  people: Person[] = [
     { name: 'Mr. IQ', voted: false },
     { name: 'Ms. Universe', voted: false },
     { name: 'Bombasto', voted: false }
   ];
-
-  vote(index: number, agree: boolean) {
-    this.people[index].voted = true;
-
-    if (agree) {
-      this.agreeCount++;
-    } else {
-      this.disagreeCount++;
-    }
-    
-  }
 }
