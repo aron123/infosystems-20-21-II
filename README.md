@@ -22,3 +22,4 @@ TypeScript típusosságának használata, komponensek létrehozása (`ng generat
 - Forráskódok:
   - [Szavazás](https://github.com/aron123/infosystems-20-21-II/tree/week03/votes)
   - [Szemantikus verziókezelés](https://github.com/aron123/infosystems-20-21-II/tree/week03/semantic-versioning)
+  - [Termék adatbázis](https://github.com/aron123/infosystems-20-21-II/tree/week03/products-json)
