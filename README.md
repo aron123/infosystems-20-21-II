@@ -1,24 +1,7 @@
-# Informatikai rendszerek építése 2020/21 II. félév
+# Webshop example
 
-## 1. hét
-Szoftveres követelmények ismertetése, telepítése.
+This example is under development.
 
-- [Szoftverkövetelmények](https://github.com/aron123/infosystems-20-21-II/tree/week01/requirements)
+## Wireframe
 
-## 2. hét
-Node Package Manager (npm) használata, Bootstrap telepítése, grid rendszer használata, sztring interpoláció, strukturális direktívák (`*ngIf`, `*ngFor`).
-
-- Forráskódok:
-  - [Egy komponens programozása](https://github.com/aron123/infosystems-20-21-II/tree/week02/intro) 
-
-- Egyéb anyagok:
-  - [Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
-  - [Emmet abbreviation](https://docs.emmet.io/abbreviations/syntax/)
-  - [Emmet in Visual Studio Code](https://code.visualstudio.com/docs/editor/emmet)
-
-## 3. hét
-TypeScript típusosságának használata, komponensek létrehozása (`ng generate` parancs), komponensek közötti együttműködés (`@Input`, `@Output` dekorátorok, `EventEmitter` osztály használata).
-
-- Forráskódok:
-  - [Szavazás](https://github.com/aron123/infosystems-20-21-II/tree/week03/votes)
-  - [Szemantikus verziókezelés](https://github.com/aron123/infosystems-20-21-II/tree/week03/semantic-versioning)
+![Wireframe of webshop UI](https://raw.githubusercontent.com/aron123/infosystems-20-21-II/week03/webshop/docs/webshop-wireframe.png)
