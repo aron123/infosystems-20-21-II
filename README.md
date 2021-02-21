@@ -8,7 +8,7 @@ The `products.json` file contains an array of product objects.
    "id": "0130350591",
    "title": "Le Creuset Kiwi (Green) Butter Dish Stoneware",
    "description": "Each piece of Le Creuset dinnerware is crafted in the same careful process as all Le Creuset stoneware - with a colorful, durable exterior enamel that matches other stoneware flawlessly while protecting from utensil marks and scratches. Every plate, bowl and mug is designed to complement any collection of stoneware, and is finished with Le Creuset's signature three-ring accent along the exterior.",
-   "price": "14.05",
+   "price": 14.05,
    "imgUrl": "http://ecx.images-amazon.com/images/I/21zcx6RCDoL.jpg",
    "brand": null,
    "categories": [
