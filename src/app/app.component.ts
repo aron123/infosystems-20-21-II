@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AMAZON_DATASET } from 'src/assets/products';
+import { Product } from './models/product';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'infosystems';
+  products: Product[] = AMAZON_DATASET;
 }
