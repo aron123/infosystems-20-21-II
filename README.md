@@ -24,3 +24,8 @@ TypeScript típusosságának használata, komponensek létrehozása (`ng generat
   - [Szemantikus verziókezelés](https://github.com/aron123/infosystems-20-21-II/tree/week03/semantic-versioning)
   - [Termék adatbázis](https://github.com/aron123/infosystems-20-21-II/tree/week03/products-json)
   - [Webáruház](https://github.com/aron123/infosystems-20-21-II/tree/week03/webshop)
+
+- Egyéb anyagok:
+  - [Angular Components Overview](https://angular.io/guide/component-overview)
+  - [Component interaction](https://angular.io/guide/component-interaction)
+  - [Sharing data between child and parent components](https://angular.io/guide/inputs-outputs)
