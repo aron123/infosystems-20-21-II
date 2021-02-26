@@ -29,3 +29,9 @@ TypeScript típusosságának használata, komponensek létrehozása (`ng generat
   - [Angular Components Overview](https://angular.io/guide/component-overview)
   - [Component interaction](https://angular.io/guide/component-interaction)
   - [Sharing data between child and parent components](https://angular.io/guide/inputs-outputs)
+
+## 4. hét
+Néhány beépített feature modul (`FormsModule`, `HttpClientModule`) használata, service-k létrehozása (`ng generate service` parancs), HTTP kommunikáció. A Bootstrap keretrendszer és a komponensek közötti együttműködés további gyakorlása.
+
+- Forráskódok:
+  - [Webáruház](https://github.com/aron123/infosystems-20-21-II/tree/week03/webshop) példa folytatása
