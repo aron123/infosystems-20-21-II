@@ -16,21 +16,18 @@ export class AppComponent implements OnInit {
 
   async ngOnInit() {
     try {
-      this.products = await this.productService.getProducts();
+      await this.productService.initializeStorage();
+      this.products = this.productService.getProducts();
     } catch (err) {
       console.error(err);
     }
   }
 
-  async search(query) {
-    try {
-      if (!query) {
-        this.products = await this.productService.getProducts();
-      } else {
-        this.products = await this.productService.filterProducts(query);
-      }
-    } catch (err) {
-      console.error(err);
+  search(query) {
+    if (!query) {
+      this.products = this.productService.getProducts();
+    } else {
+      this.products = this.productService.filterProducts(query);
     }
   }
 }

@@ -7,20 +7,25 @@ import { Product } from '../models/product';
 })
 export class ProductService {
 
+  storage: Product[] = [];
+
   constructor(public http: HttpClient) { }
 
-  getProducts(): Promise<Product[]> {
-    return this.http.get<Product[]>('assets/products.json').toPromise();
+  async initializeStorage(): Promise<any> {
+    this.storage = await this.http.get<Product[]>('assets/products.json').toPromise();
   }
 
-  async filterProducts(query): Promise<Product[]> {
-    const products = await this.getProducts();
-    return Promise.resolve(products.filter(product => {
+  getProducts(): Product[] {
+    return this.storage;
+  }
+
+  filterProducts(query): Product[] {
+    return this.storage.filter(product => {
       if (!product.title) {
         return false;
       }
 
       return product.title.includes(query);
-    }));
+    });
   }
 }
