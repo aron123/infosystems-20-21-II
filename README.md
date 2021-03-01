@@ -31,7 +31,11 @@ TypeScript típusosságának használata, komponensek létrehozása (`ng generat
   - [Sharing data between child and parent components](https://angular.io/guide/inputs-outputs)
 
 ## 4. hét
-Néhány beépített feature modul (`FormsModule`, `HttpClientModule`) használata, service-k létrehozása (`ng generate service` parancs), HTTP kommunikáció. A Bootstrap keretrendszer és a komponensek közötti együttműködés további gyakorlása.
+Néhány beépített feature modul (`FormsModule`, `HttpClientModule`) használata, service-k célja, létrehozása (`ng generate service` parancs), aszinkron függvények, HTTP kommunikáció. Angular komponensek életciklusa.
 
 - Forráskódok:
   - [Webáruház](https://github.com/aron123/infosystems-20-21-II/tree/week03/webshop) példa folytatása
+
+- Egyéb anyagok:
+  - [Angular Lifecycle Hooks](https://codecraft.tv/courses/angular/components/lifecycle-hooks/)
+  - [Using Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
