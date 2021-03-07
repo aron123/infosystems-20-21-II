@@ -31,11 +31,22 @@ TypeScript típusosságának használata, komponensek létrehozása (`ng generat
   - [Sharing data between child and parent components](https://angular.io/guide/inputs-outputs)
 
 ## 4. hét
-Néhány beépített feature modul (`FormsModule`, `HttpClientModule`) használata, service-k célja, létrehozása (`ng generate service` parancs), aszinkron függvények, HTTP kommunikáció. Angular komponensek életciklusa.
+`HttpClientModule` használata, service-k célja, létrehozása (`ng generate service` parancs), aszinkron függvények, HTTP kommunikáció. Angular komponensek életciklusa.
 
 - Forráskódok:
-  - [Webáruház](https://github.com/aron123/infosystems-20-21-II/tree/week03/webshop) példa folytatása
+  - [Webáruház](https://github.com/aron123/infosystems-20-21-II/tree/week03/webshop): JSON fájl betöltése
 
 - Egyéb anyagok:
   - [Angular Lifecycle Hooks](https://codecraft.tv/courses/angular/components/lifecycle-hooks/)
   - [Using Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
+
+## 5. hét
+Formok építése `FormsModule` és `ReactiveFormsModule` használatával. Az Angular Router célja és konfigurálása.
+
+- Forráskódok:
+  - [Webáruház](https://github.com/aron123/infosystems-20-21-II/tree/week03/webshop): terméklista megjelenítése, kereső létrehozása, új termék felvitele
+
+- Egyéb anyagok:
+  - [Reactive Forms](https://angular.io/guide/reactive-forms)
+  - [Routing in SPAs](https://dev.to/marcomonsanto/routing-in-spas-173i)
+  - [In-app navigation: routing to views](https://angular.io/guide/router)
