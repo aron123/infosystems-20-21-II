@@ -14,20 +14,19 @@ export class AppComponent implements OnInit {
 
   constructor(private productService: ProductService) { }
 
-  async ngOnInit() {
+  async ngOnInit(): Promise<void> {
     try {
-      await this.productService.initializeStorage();
-      this.products = this.productService.getProducts();
+      this.products = await this.productService.getProducts();
     } catch (err) {
       console.error(err);
     }
   }
 
-  search(query) {
+  async search(query): Promise<void> {
     if (!query) {
-      this.products = this.productService.getProducts();
+      this.products = await this.productService.getProducts();
     } else {
-      this.products = this.productService.filterProducts(query);
+      this.products = await this.productService.filterProducts(query);
     }
   }
 }

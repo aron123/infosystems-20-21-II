@@ -11,21 +11,28 @@ export class ProductService {
 
   constructor(public http: HttpClient) { }
 
-  async initializeStorage(): Promise<any> {
-    this.storage = await this.http.get<Product[]>('assets/products.json').toPromise();
+  async loadStorageIfEmpty(): Promise<void> {
+    if (!this.storage || this.storage.length === 0) {
+      this.storage = await this.http.get<Product[]>('assets/products.json').toPromise();
+    }
   }
 
-  getProducts(): Product[] {
-    return this.storage;
+  async getProducts(): Promise<Product[]> {
+    await this.loadStorageIfEmpty();
+    return Promise.resolve(this.storage);
   }
 
-  filterProducts(query): Product[] {
-    return this.storage.filter(product => {
+  async filterProducts(query): Promise<Product[]> {
+    await this.loadStorageIfEmpty();
+
+    const result = this.storage.filter(product => {
       if (!product.title) {
         return false;
       }
 
       return product.title.includes(query);
     });
+
+    return Promise.resolve(result);
   }
 }
