@@ -41,12 +41,23 @@ TypeScript típusosságának használata, komponensek létrehozása (`ng generat
   - [Using Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
 
 ## 5. hét
-Formok építése `FormsModule` és `ReactiveFormsModule` használatával. Az Angular Router célja és konfigurálása.
+Formok építése `FormsModule` és `ReactiveFormsModule` használatával.
 
 - Forráskódok:
   - [Webáruház](https://github.com/aron123/infosystems-20-21-II/tree/week03/webshop): terméklista megjelenítése, kereső létrehozása, új termék felvitele
 
 - Egyéb anyagok:
   - [Reactive Forms](https://angular.io/guide/reactive-forms)
+
+## 6. hét
+:hungary: március 15. Elmaradt.
+
+## 7. hét
+Reaktív formok validálása. Az Angular Router célja és konfigurálása. A HTTP protokoll. `Express.js` szerver bevezetése.
+
+- Forráskódok:
+  - [Webáruház](https://github.com/aron123/infosystems-20-21-II/tree/week03/webshop): menürendszer kialakítása, termékfelviteli űrlap validációja, kezdetleges szerver hozzáadása
+
+- Egyéb anyagok:
   - [Routing in SPAs](https://dev.to/marcomonsanto/routing-in-spas-173i)
   - [In-app navigation: routing to views](https://angular.io/guide/router)
