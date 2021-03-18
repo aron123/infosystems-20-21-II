@@ -50,7 +50,7 @@ Formok építése `FormsModule` és `ReactiveFormsModule` használatával.
   - [Reactive Forms](https://angular.io/guide/reactive-forms)
 
 ## 6. hét
-:hungary: március 15. Elmaradt.
+Elmaradt (március 15.)
 
 ## 7. hét
 Reaktív formok validálása. Az Angular Router célja és konfigurálása. A HTTP protokoll. `Express.js` szerver bevezetése.
@@ -61,3 +61,4 @@ Reaktív formok validálása. Az Angular Router célja és konfigurálása. A HT
 - Egyéb anyagok:
   - [Routing in SPAs](https://dev.to/marcomonsanto/routing-in-spas-173i)
   - [In-app navigation: routing to views](https://angular.io/guide/router)
+  - [HTTP-protokoll](https://github.com/aron123/infosystems-20-21-II/tree/week07/http)
