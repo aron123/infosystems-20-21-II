@@ -55,10 +55,12 @@ Elmaradt (március 15.)
 ## 7. hét
 Reaktív formok validálása. Az Angular Router célja és konfigurálása. A HTTP protokoll. `Express.js` szerver bevezetése.
 
-- Forráskódok:
+- Forráskódok, tananyagok:
   - [Webáruház](https://github.com/aron123/infosystems-20-21-II/tree/week03/webshop): menürendszer kialakítása, termékfelviteli űrlap validációja, kezdetleges szerver hozzáadása
+  - [HTTP-protokoll](https://github.com/aron123/infosystems-20-21-II/tree/week07/http)
+  - [Backend bevezetés](https://github.com/aron123/infosystems-20-21-II/tree/week07/backend-basics)
 
 - Egyéb anyagok:
   - [Routing in SPAs](https://dev.to/marcomonsanto/routing-in-spas-173i)
   - [In-app navigation: routing to views](https://angular.io/guide/router)
-  - [HTTP-protokoll](https://github.com/aron123/infosystems-20-21-II/tree/week07/http)
+  
