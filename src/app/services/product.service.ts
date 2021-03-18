@@ -35,4 +35,9 @@ export class ProductService {
 
     return Promise.resolve(result);
   }
+
+  async addProduct(product: Product) {
+    await this.loadStorageIfEmpty();
+    this.storage.unshift(product);
+  }
 }

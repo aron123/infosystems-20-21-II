@@ -1,19 +1,20 @@
-<div class="container-fluid">
-  <div class="row mt-2">
-    <div class="col-md-7">
-      <input class="form-control" type="text" placeholder="Please type a product title..." [(ngModel)]="query">
-    </div>
-    <div class="col-md-2">
-      <button class="btn btn-primary" (click)="search(query)">Search</button>
-    </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Webshop</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/">Products</a>
+      </li>
+      <li class="navbar-nav">
+        <a class="nav-link" routerLink="/add-product">Add Product</a>
+      </li>
+    </ul>
   </div>
-  <div class="row mt-2">
-    <div class="col-md-8">
-      <h5>Product list</h5>
-      <app-product-list class="row" [products]="products"></app-product-list>
-    </div>
-    <div class="col-md-4">
-      <h5>Shopping Cart</h5>
-    </div>
-  </div>
+</nav>
+<div class="container-fluid mt-2">
+  <router-outlet></router-outlet>
 </div>

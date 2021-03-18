@@ -1,3 +1,21 @@
-<div class="col-md-6" *ngFor="let product of products">
-    <app-product [product]="product"></app-product>
+<div class="row mt-2">
+    <div class="col-md-7">
+        <input class="form-control" type="text" placeholder="Please type a product title..." [(ngModel)]="query">
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-primary" (click)="search(query)">Search</button>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-md-8">
+        <h5>Product list</h5>
+        <div class="row">
+            <div class="col-md-6" *ngFor="let product of products">
+                <app-product [product]="product"></app-product>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h5>Shopping Cart</h5>
+    </div>
 </div>
