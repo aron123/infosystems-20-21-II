@@ -38,7 +38,7 @@ Példa: `/template/web/img/logo-uni-miskolc.png?time=2020-05-01&thumb=true`
 A paraméterek `név=érték` formában adhatóak meg. A paramétereket egymástól `&` jel, az erőforrás megnevezésétől `?` választja el.
 
 #### Egyéb kérések paraméterei
-POST, PUT, DELETE kéréseknél a **body** rész is kitölthető, azonban ez opsionális. A következő kérés egy felhasználó létrehozására szolgálhat.
+POST, PUT, DELETE kéréseknél a **body** rész is kitölthető, azonban ez opcionális. A következő kérés egy felhasználó létrehozására szolgálhat.
 
 ```http
 POST /users HTTP/1.1
@@ -61,7 +61,7 @@ A HTTP válasz a következőképpen épül fel:
 HTTP/1.1 200 OK
 Date: Thu, 18 Mar 2021 13:02:06 GMT
 Content-Type: application/json; charset=utf-8
-Content-Length: 33
+Content-Length: 29
 Connection: keep-alive
 X-Powered-By: Express
 X-Ratelimit-Limit: 1000
@@ -81,8 +81,10 @@ Válasz esetében a body rész szintén opcionális. A példa kérésben a szerv
 #### HTTP státuszkódok
 Az egyes HTTP státuszkódok jelentését a HTTP specifikációja tartalmazza, általánosságban a következők írhatóak le róluk:
 
-- 1xx: Informatív üzenet (pl. 101 Protokoll váltás)
-- 2xx: A kérést a szerver sikeresen megkapta, értelmezte, teljesítette (pl. 200 OK, 201 Létrehozva)
-- 3xx: Átirányítás (pl. 301 Ideiglenesen elköltözött)
-- 4xx: Kliens hiba (pl. 400 Hibás kérés, 404 Nem található)
-- 5xx: Szerver hiba (pl. 503 Szolgáltatás nem elérhető)
+- 1xx: Informatív üzenet (pl. 101 Switching Protocols)
+- 2xx: A kérést a szerver sikeresen megkapta, értelmezte, teljesítette (pl. 200 OK, 201 Created)
+- 3xx: Átirányítás (pl. 301 Moved Permanently)
+- 4xx: Kliens hiba (pl. 400 Bad Request, 404 Not found)
+- 5xx: Szerver hiba (pl. 503 Service Unavailable)
+
+_([Az összes státuszkód definíciója](https://tools.ietf.org/html/rfc2616#section-10))_
