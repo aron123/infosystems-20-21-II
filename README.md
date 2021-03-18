@@ -9,6 +9,9 @@ tsc --init
 npm install @types/node express @types/express body-parser --save
 ```
 
+## Running backend
+``ts-node-dev index.ts``
+
 ## Express middlewares
 
 ![Express middlewares](https://static.packt-cdn.com/products/9781849696548/graphics/6548_01_01.jpg)
