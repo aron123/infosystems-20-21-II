@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProductService } from '../services/product.service';
 
@@ -11,11 +11,11 @@ import { ProductService } from '../services/product.service';
 export class AddProductComponent implements OnInit {
 
   productForm: FormGroup = this.formBuilder.group({
-    id: [''],
-    title: [''],
+    id: ['', [Validators.required, Validators.pattern(/^[0-9a-z]+$/)]],
+    title: ['', Validators.required],
     description: [''],
-    price: [0],
-    imgUrl: [ 'https://matchory.com/assets/corals/images/default_product_image.png' ],
+    price: [0, Validators.max(1000)],
+    imgUrl: [ 'https://matchory.com/assets/corals/images/default_product_image.png', Validators.pattern(/^(http|https):\/\/.*/) ],
     brand: ['']
   });
 
@@ -23,6 +23,22 @@ export class AddProductComponent implements OnInit {
     private formBuilder: FormBuilder,
     private productService: ProductService,
     private router: Router) { }
+
+  get id() {
+    return this.productForm.get('id');
+  }
+
+  get title() {
+    return this.productForm.get('title');
+  }
+
+  get price() {
+    return this.productForm.get('price');
+  }
+
+  get imgUrl() {
+    return this.productForm.get('imgUrl');
+  }
 
   ngOnInit(): void {
   }

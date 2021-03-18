@@ -3,14 +3,27 @@
         <form [formGroup]="productForm">
             <label for="id">Id</label>
             <input type="text" class="form-control" id="id" formControlName="id">
+            <div *ngIf="id.invalid && (id.dirty || id.touched)" class="text-danger">
+                <small *ngIf="id.errors.required">Id is required.</small>
+                <small *ngIf="id.errors.pattern">Id can not contain special characters.</small>
+            </div>
             <label for="title">Title</label>
             <input type="text" class="form-control" id="title" formControlName="title">
+            <div class="text-danger" *ngIf="title.invalid && (title.dirty || title.touched)">
+                <small>Title is required.</small> 
+            </div>
             <label for="description">Description</label>
             <input type="text" class="form-control" id="description" formControlName="description">
             <label for="price">Price</label>
             <input type="number" class="form-control" id="price" formControlName="price">
+            <div class="text-danger" *ngIf="price.invalid && (price.dirty || price.touched)">
+                <small>Price should be under 1000 $.</small>
+            </div>
             <label for="imgUrl">Image URL</label>
             <input type="text" class="form-control" id="imgUrl" formControlName="imgUrl">
+            <div class="text-danger" *ngIf="imgUrl.invalid && (imgUrl.dirty || imgUrl.touched)">
+                <small>URL should be a valid URL.</small>
+            </div>
             <label for="brand">Brand</label>
             <input type="text" class="form-control" id="brand" formControlName="brand">
             <button class="btn btn-primary mt-2" (click)="addProduct()">Add product</button>
