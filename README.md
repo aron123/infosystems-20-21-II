@@ -1,52 +1,88 @@
-# Informatikai rendszerek építése 2020/21 II. félév
+# HTTP protokoll
 
-## 1. hét
-Szoftveres követelmények ismertetése, telepítése.
+A HTTP _(**H**yper**T**ext **T**ransfer **P**rotocol)_ egy TCP feletti, alkalmazási rétegbeli protokoll. Eredetileg HTML fájlok kiszolgálásához készítették, azonban ma már ennél lényegesen több funkcióval rendelkezik.
 
-- [Szoftverkövetelmények](https://github.com/aron123/infosystems-20-21-II/tree/week01/requirements)
+## Működése
 
-## 2. hét
-Node Package Manager (npm) használata, Bootstrap telepítése, grid rendszer használata, sztring interpoláció, strukturális direktívák (`*ngIf`, `*ngFor`).
+Kliens és szerver közötti adatcserét valósít meg. A kliens a szervernek **kérés**eket küld, a szerver a kliensnek **válasz**okat ad. A szerver "önállóan" nem tud adatot eljuttatni a kliensnek, csak a kliens kéréseire tud válaszolni.
 
-- Forráskódok:
-  - [Egy komponens programozása](https://github.com/aron123/infosystems-20-21-II/tree/week02/intro) 
+### Kérés
+A kliens a szerver erőforrásait a célnak megfelelő HTTP-metódus megadásával, illetve egy elérési útvonal megnevezésével éri el (pl. GET /api/users, GET /api/users/15, DELETE /api/users/15).
 
-- Egyéb anyagok:
-  - [Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
-  - [Emmet abbreviation](https://docs.emmet.io/abbreviations/syntax/)
-  - [Emmet in Visual Studio Code](https://code.visualstudio.com/docs/editor/emmet)
+Egy példa kérés felépítése a következő:
 
-## 3. hét
-TypeScript típusosságának használata, komponensek létrehozása (`ng generate` parancs), komponensek közötti együttműködés (`@Input`, `@Output` dekorátorok, `EventEmitter` osztály használata).
+```http
+GET /template/web/img/logo-uni-miskolc.png HTTP/1.1
+User-Agent: curl/7.35.0
+Host: www.uni-miskolc.hu
+Accept: */*
+```
 
-- Forráskódok:
-  - [Szavazás](https://github.com/aron123/infosystems-20-21-II/tree/week03/votes)
-  - [Szemantikus verziókezelés](https://github.com/aron123/infosystems-20-21-II/tree/week03/semantic-versioning)
-  - [Termék adatbázis](https://github.com/aron123/infosystems-20-21-II/tree/week03/products-json)
-  - [Webáruház](https://github.com/aron123/infosystems-20-21-II/tree/week03/webshop)
+A kérés első sora mindig `METÓDUS ERŐFORRÁS VERZIÓ` formátumú. Ezt a kéréshez tartozó, tetszőleges számú **header** követi, `Headernév: érték` alakban.
 
-- Egyéb anyagok:
-  - [Angular Components Overview](https://angular.io/guide/component-overview)
-  - [Component interaction](https://angular.io/guide/component-interaction)
-  - [Sharing data between child and parent components](https://angular.io/guide/inputs-outputs)
+A header sorok végét egy üres sor jelzi. Ezt követi az opcionális **body** rész, melyben a kérés teljesítéséhez szükséges adatokat helyezhetünk el plain text-ben vagy akár valamilyen tetszőleges adatformátumban (pl. egy új felhasználó adatait JSON formátumban).
 
-## 4. hét
-`HttpClientModule` használata, service-k célja, létrehozása (`ng generate service` parancs), aszinkron függvények, HTTP kommunikáció. Angular komponensek életciklusa.
+#### Metódusok
+A leggyakrabban alkalmazott metódusok és szimbolikus jelentésük:
 
-- Forráskódok:
-  - [Webáruház](https://github.com/aron123/infosystems-20-21-II/tree/week03/webshop): JSON fájl betöltése
+- GET: Adatok lekérdezése
+- POST: Új adat hozzáadása
+- PUT: Meglévő adat módosítása
+- DELETE: Meglévő adat törlése
 
-- Egyéb anyagok:
-  - [Angular Lifecycle Hooks](https://codecraft.tv/courses/angular/components/lifecycle-hooks/)
-  - [Using Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
+#### GET kérés paraméterei
+A GET kérés speciális abból a szempontból, hogy **body** részt nem tartalmazhat. Helyette - amennyiben szükséges - a kéréshez tartozó paramétereket **query paraméter**ekként adhatjuk meg.
 
-## 5. hét
-Formok építése `FormsModule` és `ReactiveFormsModule` használatával. Az Angular Router célja és konfigurálása.
+Példa: `/template/web/img/logo-uni-miskolc.png?time=2020-05-01&thumb=true`
 
-- Forráskódok:
-  - [Webáruház](https://github.com/aron123/infosystems-20-21-II/tree/week03/webshop): terméklista megjelenítése, kereső létrehozása, új termék felvitele
+A paraméterek `név=érték` formában adhatóak meg. A paramétereket egymástól `&` jel, az erőforrás megnevezésétől `?` választja el.
 
-- Egyéb anyagok:
-  - [Reactive Forms](https://angular.io/guide/reactive-forms)
-  - [Routing in SPAs](https://dev.to/marcomonsanto/routing-in-spas-173i)
-  - [In-app navigation: routing to views](https://angular.io/guide/router)
+#### Egyéb kérések paraméterei
+POST, PUT, DELETE kéréseknél a **body** rész is kitölthető, azonban ez opsionális. A következő kérés egy felhasználó létrehozására szolgálhat.
+
+```http
+POST /users HTTP/1.1
+User-Agent: curl/7.35.0
+Host: api.example.com
+Accept: */*
+Content-Type: application/json
+Content-Length: 28
+
+{ "id": 15, "name": "feri" }
+```
+
+### Válasz
+
+A kliens kéréseire a szerver válaszokat ad. Egy kéréshez legfeljebb egy teljesértékű válasz tartozhat.
+
+A HTTP válasz a következőképpen épül fel:
+
+```http
+HTTP/1.1 200 OK
+Date: Thu, 18 Mar 2021 13:02:06 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Powered-By: Express
+X-Ratelimit-Limit: 1000
+X-Ratelimit-Remaining: 999
+X-Ratelimit-Reset: 1616072536
+Cache-Control: no-cache
+Pragma: no-cache
+
+{ "id": 101, "name": "feri" }
+```
+
+Az első sor `VERZIÓ STÁTUSZKÓD ÜZENET` formátumú, amely jelzi, hogy a kért művelet sikeresen befejeződött-e. A státuszkód gépi, az üzenet emberi feldolgozásra szolgál.<br>
+A további sorok a válaszhoz tartozó header-ök, majd ezután egy üres sor következik.
+
+Válasz esetében a body rész szintén opcionális. A példa kérésben a szerver visszaküldte az adatbázishoz hozzáadott felhasználó adatait.
+
+#### HTTP státuszkódok
+Az egyes HTTP státuszkódok jelentését a HTTP specifikációja tartalmazza, általánosságban a következők írhatóak le róluk:
+
+- 1xx: Informatív üzenet (pl. 101 Protokoll váltás)
+- 2xx: A kérést a szerver sikeresen megkapta, értelmezte, teljesítette (pl. 200 OK, 201 Létrehozva)
+- 3xx: Átirányítás (pl. 301 Ideiglenesen elköltözött)
+- 4xx: Kliens hiba (pl. 400 Hibás kérés, 404 Nem található)
+- 5xx: Szerver hiba (pl. 503 Szolgáltatás nem elérhető)
