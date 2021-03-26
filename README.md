@@ -63,4 +63,13 @@ Reaktív formok validálása. Az Angular Router célja és konfigurálása. A HT
 - Egyéb anyagok:
   - [Routing in SPAs](https://dev.to/marcomonsanto/routing-in-spas-173i)
   - [In-app navigation: routing to views](https://angular.io/guide/router)
-  
+
+## 8. hét
+Az ORM technika. Mintapéldák a `TypeORM` eszköz használatára (entitások, relációk, migrációk).
+
+- Forráskódok, tananyagok:
+  - [TypeORM gyakorlat](http://ait2.iit.uni-miskolc.hu/oktatas/doku.php?id=tanszek:oktatas:informatikai_rendszerek_epitese:type_orm) (Dr. Nehéz Károly anyaga)
+  - [Webáruház](https://github.com/aron123/infosystems-20-21-II/tree/week03/webshop): backend struktúra kialakítása, TypeORM konfigurációja, adatbázist kezelő controllerek implementálása
+
+- Egyéd anyagok:
+  - [TypeORM](https://typeorm.io/)
