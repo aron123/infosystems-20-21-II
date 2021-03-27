@@ -1,5 +1,8 @@
 # Informatikai rendszerek építése 2020/21 II. félév
 
+## Beadandóval kapcsolatos követelmények
+- [Követelmények](https://github.com/aron123/infosystems-20-21-II/tree/week08/midterm-assignment)
+
 ## 1. hét
 Szoftveres követelmények ismertetése, telepítése.
 
@@ -69,7 +72,7 @@ Az ORM technika. Mintapéldák a `TypeORM` eszköz használatára (entitások, r
 
 - Forráskódok, tananyagok:
   - [TypeORM gyakorlat](http://ait2.iit.uni-miskolc.hu/oktatas/doku.php?id=tanszek:oktatas:informatikai_rendszerek_epitese:type_orm) (Dr. Nehéz Károly anyaga)
-  - [Webáruház](https://github.com/aron123/infosystems-20-21-II/tree/week03/webshop): backend struktúra kialakítása, TypeORM konfigurációja, adatbázist kezelő controllerek implementálása
+  - [Webáruház](https://github.com/aron123/infosystems-20-21-II/tree/week03/webshop): backend projekt struktúrájának kialakítása, TypeORM konfigurációja, adatbázist kezelő controllerek implementálása
 
-- Egyéd anyagok:
-  - [TypeORM](https://typeorm.io/)
+- Egyéb anyagok:
+  - [TypeORM documentation](https://typeorm.io/)
