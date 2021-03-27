@@ -1,75 +1,23 @@
-# Informatikai rendszerek építése 2020/21 II. félév
+# Beadandó feladat
 
-## 1. hét
-Szoftveres követelmények ismertetése, telepítése.
+## Feladat kiírás
 
-- [Szoftverkövetelmények](https://github.com/aron123/infosystems-20-21-II/tree/week01/requirements)
+A feladatkiírások a [tanszék oktatási oldalán](http://ait2.iit.uni-miskolc.hu/oktatas/doku.php?id=tanszek:oktatas:informatikai_rendszerek_epitese:feleves_feladat) megtalálhatóak.
 
-## 2. hét
-Node Package Manager (npm) használata, Bootstrap telepítése, grid rendszer használata, sztring interpoláció, strukturális direktívák (`*ngIf`, `*ngFor`).
+## Feladat leadás
+A feladat megoldását a <kiss.aron@uni-miskolc.hu> címre elküldött e-mailben le kell adni és a kijelölt gyakorlatok valamelyikén (előreláthatólag a 12.-13. héten) röviden be kell mutatni, szóban meg kell védeni.
 
-- Forráskódok:
-  - [Egy komponens programozása](https://github.com/aron123/infosystems-20-21-II/tree/week02/intro) 
+Pótlásra a 14. heti gyakorlaton van lehetőség.
 
-- Egyéb anyagok:
-  - [Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
-  - [Emmet abbreviation](https://docs.emmet.io/abbreviations/syntax/)
-  - [Emmet in Visual Studio Code](https://code.visualstudio.com/docs/editor/emmet)
+A megoldás beküldhető egy publikus git repository-ra mutató linkként vagy 1 db .zip fájlba csomagolva. A ``node_modules/`` mappa egyik esetben se legyen mellékelve!
 
-## 3. hét
-TypeScript típusosságának használata, komponensek létrehozása (`ng generate` parancs), komponensek közötti együttműködés (`@Input`, `@Output` dekorátorok, `EventEmitter` osztály használata).
+## Alkalmazandó technológiák
+A feladat megoldásához a gyakorlatokon bemutatott technológiákat kell felhasználni:
 
-- Forráskódok:
-  - [Szavazás](https://github.com/aron123/infosystems-20-21-II/tree/week03/votes)
-  - [Szemantikus verziókezelés](https://github.com/aron123/infosystems-20-21-II/tree/week03/semantic-versioning)
-  - [Termék adatbázis](https://github.com/aron123/infosystems-20-21-II/tree/week03/products-json)
-  - [Webáruház](https://github.com/aron123/infosystems-20-21-II/tree/week03/webshop)
-
-- Egyéb anyagok:
-  - [Angular Components Overview](https://angular.io/guide/component-overview)
-  - [Component interaction](https://angular.io/guide/component-interaction)
-  - [Sharing data between child and parent components](https://angular.io/guide/inputs-outputs)
-
-## 4. hét
-`HttpClientModule` használata, service-k célja, létrehozása (`ng generate service` parancs), aszinkron függvények, HTTP kommunikáció. Angular komponensek életciklusa.
-
-- Forráskódok:
-  - [Webáruház](https://github.com/aron123/infosystems-20-21-II/tree/week03/webshop): JSON fájl betöltése
-
-- Egyéb anyagok:
-  - [Angular Lifecycle Hooks](https://codecraft.tv/courses/angular/components/lifecycle-hooks/)
-  - [Using Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
-
-## 5. hét
-Formok építése `FormsModule` és `ReactiveFormsModule` használatával.
-
-- Forráskódok:
-  - [Webáruház](https://github.com/aron123/infosystems-20-21-II/tree/week03/webshop): terméklista megjelenítése, kereső létrehozása, új termék felvitele
-
-- Egyéb anyagok:
-  - [Reactive Forms](https://angular.io/guide/reactive-forms)
-
-## 6. hét
-Elmaradt (március 15.)
-
-## 7. hét
-Reaktív formok validálása. Az Angular Router célja és konfigurálása. A HTTP protokoll. `Express.js` szerver bevezetése.
-
-- Forráskódok, tananyagok:
-  - [Webáruház](https://github.com/aron123/infosystems-20-21-II/tree/week03/webshop): menürendszer kialakítása, termékfelviteli űrlap validációja, kezdetleges szerver hozzáadása
-  - [HTTP-protokoll](https://github.com/aron123/infosystems-20-21-II/tree/week07/http)
-  - [Backend bevezetés](https://github.com/aron123/infosystems-20-21-II/tree/week07/backend-basics)
-
-- Egyéb anyagok:
-  - [Routing in SPAs](https://dev.to/marcomonsanto/routing-in-spas-173i)
-  - [In-app navigation: routing to views](https://angular.io/guide/router)
-
-## 8. hét
-Az ORM technika. Mintapéldák a `TypeORM` eszköz használatára (entitások, relációk, migrációk).
-
-- Forráskódok, tananyagok:
-  - [TypeORM gyakorlat](http://ait2.iit.uni-miskolc.hu/oktatas/doku.php?id=tanszek:oktatas:informatikai_rendszerek_epitese:type_orm) (Dr. Nehéz Károly anyaga)
-  - [Webáruház](https://github.com/aron123/infosystems-20-21-II/tree/week03/webshop): backend struktúra kialakítása, TypeORM konfigurációja, adatbázist kezelő controllerek implementálása
-
-- Egyéd anyagok:
-  - [TypeORM](https://typeorm.io/)
+- Frontend: Angular 11 keretrendszer (Az alkalmazás logikus módon legyen komponensekre bontva, a köztük történő navigációhoz a beépített Angular Router legyen alkalmazva.)
+- Backend:
+  - TypeScript programozási nyelv
+  - Express.js szerver
+  - TypeORM
+  - Adatbázis: a következők bármelyike: MySQL, SQLite, Oracle, PostgreSQL (preferált: MySQL vagy SQLite)
+    - ahol alkalmazható, az adatbázis elnevezése legyen `info_rendszerek_beadando`
