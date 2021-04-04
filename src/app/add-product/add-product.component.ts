@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Category } from '../models/category';
+import { CategoryService } from '../services/category.service';
 import { ProductService } from '../services/product.service';
 
 @Component({
@@ -10,19 +12,28 @@ import { ProductService } from '../services/product.service';
 })
 export class AddProductComponent implements OnInit {
 
+  isNewProduct: boolean = true;
+
+  categories: Category[];
+
+  errorMessage: string;
+
   productForm: FormGroup = this.formBuilder.group({
     id: [0],
     title: ['', Validators.required],
     description: [''],
     price: [0, Validators.max(1000)],
     imgUrl: [ 'https://matchory.com/assets/corals/images/default_product_image.png', Validators.pattern(/^(http|https):\/\/.*/) ],
-    brand: ['']
+    brand: [''],
+    categories: [[]]
   });
 
   constructor(
     private formBuilder: FormBuilder,
     private productService: ProductService,
-    private router: Router) { }
+    private categoryService: CategoryService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute) { }
 
   get id() {
     return this.productForm.get('id');
@@ -40,13 +51,26 @@ export class AddProductComponent implements OnInit {
     return this.productForm.get('imgUrl');
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    this.categories = await this.categoryService.getAllCategories();
+    const productId = this.activatedRoute.snapshot.queryParams.id;
+
+    if (productId) {
+      this.isNewProduct = false;
+      const product = await this.productService.getProductWithId(productId);
+      this.productForm.setValue(product);
+    }
   }
 
-  addProduct() {
+  async addProduct() {
     const product = this.productForm.value;
-    this.productService.addProduct(product);
-    this.router.navigateByUrl('/');
+    try {
+      this.errorMessage = '';
+      await this.productService.addProduct(product);
+      this.router.navigateByUrl('/');
+    } catch (err) {
+      this.errorMessage = err.error.message;
+    }
   }
 
 }

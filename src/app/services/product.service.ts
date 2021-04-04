@@ -13,6 +13,10 @@ export class ProductService {
     return this.http.get<Product[]>('/api/products').toPromise();
   }
 
+  async getProductWithId(id) {
+    return this.http.get<Product>('/api/products/' + id).toPromise();
+  }
+
   async filterProducts(query: string): Promise<Product[]> {
     return this.http.get<Product[]>('/api/products', {
       params: { search: query }

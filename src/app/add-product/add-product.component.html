@@ -1,5 +1,8 @@
 <div class="row">
     <div class="col-md-6">
+        <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+            {{ errorMessage }}
+        </div>
         <form [formGroup]="productForm">
             <label for="title">Title</label>
             <input type="text" class="form-control" id="title" formControlName="title">
@@ -18,6 +21,10 @@
             <div class="text-danger" *ngIf="imgUrl.invalid && (imgUrl.dirty || imgUrl.touched)">
                 <small>URL should be a valid URL.</small>
             </div>
+            <label for="categories">Categories</label>
+            <select class="form-control" name="categories" id="categories" multiple formControlName="categories">
+                <option [value]="category" *ngFor="let category of categories">{{ category.title }}</option>
+            </select>
             <label for="brand">Brand</label>
             <input type="text" class="form-control" id="brand" formControlName="brand">
             <button class="btn btn-primary mt-2" (click)="addProduct()">Add product</button>

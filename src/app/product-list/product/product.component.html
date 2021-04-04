@@ -5,7 +5,11 @@
     <div class="col-md-9">
         <h5>
             {{product.title}} <span class="badge badge-success">{{ product.price }} $</span>
+            <button class="btn btn-sm btn-primary ml-2" (click)="editProduct(product.id)">Edit</button>
         </h5>
+        <span class="badge badge-secondary" *ngFor="let category of product.categories">
+            {{ category.title }}
+        </span>
         <p>
             {{ product.description }}
         </p>

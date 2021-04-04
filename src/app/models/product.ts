@@ -1,9 +1,11 @@
+import { Category } from "./category";
+
 export interface Product {
-    id: string;
+    id: number;
     title: string;
     description: string;
     price: number;
     imgUrl: string;
     brand: string;
-    categories: string[];
+    categories: Category[];
 }

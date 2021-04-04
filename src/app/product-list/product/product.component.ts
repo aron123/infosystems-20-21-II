@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 
 @Component({
@@ -10,6 +11,12 @@ export class ProductComponent {
 
   @Input() product: Product;
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  editProduct(id) {
+    this.router.navigate(['/add-product'], {
+      queryParams: { id }
+    });
+  }
 
 }
