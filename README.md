@@ -1,6 +1,6 @@
-# JSON of products
+# Database of products
 
-The `products.json` file contains an array of product objects.
+The `products.json` file contains an array of product objects. `products.sql` contains a MySQL dump with the same data.
 
 ## Schema
 ```json
