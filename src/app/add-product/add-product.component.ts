@@ -11,7 +11,7 @@ import { ProductService } from '../services/product.service';
 export class AddProductComponent implements OnInit {
 
   productForm: FormGroup = this.formBuilder.group({
-    id: ['', [Validators.required, Validators.pattern(/^[0-9a-z]+$/)]],
+    id: [0],
     title: ['', Validators.required],
     description: [''],
     price: [0, Validators.max(1000)],
