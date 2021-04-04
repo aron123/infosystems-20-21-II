@@ -6,9 +6,9 @@ const connectionOptions: ConnectionOptions = {
     port: 3306,
     username: 'root',
     password: 'root',
-    database: 'inforendszerek',
+    database: 'inforendszerek_webshop',
     synchronize: true,
-    logging: false,
+    logging: true,
     entities: [
        'src/entity/**/*.ts'
     ],

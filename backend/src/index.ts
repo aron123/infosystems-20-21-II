@@ -7,6 +7,7 @@ import { getRouter } from './routes';
 createConnection(connectionOptions).then(() => {
     const app = express();
 
+    app.use(express.json());
     app.use('/api', getRouter());
 
     app.listen(3000, () => {

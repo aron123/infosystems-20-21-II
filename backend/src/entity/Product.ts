@@ -1,22 +1,22 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Product {
-    @PrimaryColumn()
-    id: string;
+    @PrimaryGeneratedColumn()
+    id: number;
 
-    @Column()
+    @Column({ nullable: true, type: 'text' })
     title: string;
 
-    @Column()
+    @Column({ nullable: true, type: 'text' })
     description: string;
 
     @Column({ type: 'float' })
     price: number;
 
-    @Column()
+    @Column({ nullable: true })
     imgUrl: string;
 
-    @Column()
+    @Column({ nullable: true })
     brand: string;
 }

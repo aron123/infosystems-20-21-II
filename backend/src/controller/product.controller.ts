@@ -1,32 +1,23 @@
+import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 import { Product } from '../entity/Product';
+import { Controller } from './controller';
 
-export class ProductController {
+export class ProductController extends Controller {
     repository = getRepository(Product);
 
-    getAllProducts = async (req, res) => {
+    getAll = async (req: Request, res: Response) => {
+        const search = req.query.search || '';
+
         try {
-            const products = await this.repository.find();
-            res.json(products);
+            const entities = await this.repository
+                .createQueryBuilder()
+                .where("title LIKE CONCAT('%', :search, '%')", { search })
+                .getMany();
+            res.json(entities);
         } catch (err) {
             console.error(err);
-            res.status(500).json({ message: 'Database error' });
+            this.handleError(res);
         }
-    }
-
-    getProductById = async (req, res) => {
-        try {
-            const product = await this.repository.findOne(req.params.id);
-
-            if (!product) {
-                res.status(404).json({ message: 'Can not find product.' });
-                return;
-            }
-
-            res.json(product);
-        } catch (err) {
-            console.error(err);
-            res.status(500).json({ message: 'Database error' });
-        }
-    }
+    };
 }
