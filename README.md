@@ -76,3 +76,8 @@ Az ORM technika. Mintapéldák a `TypeORM` eszköz használatára (entitások, r
 
 - Egyéb anyagok:
   - [TypeORM documentation](https://typeorm.io/)
+
+## 9. hét
+Elmaradt (húsvéthétfő)
+
+## 10. hét
