@@ -21,6 +21,10 @@
             <div class="text-danger" *ngIf="imgUrl.invalid && (imgUrl.dirty || imgUrl.touched)">
                 <small>URL should be a valid URL.</small>
             </div>
+            <label for="uploader">Uploader</label>
+            <select class="form-control" name="uploader" id="uploader" formControlName="uploader">
+                <option [value]="user.id" *ngFor="let user of users">{{ user.firstName }}  {{ user.lastName }}</option>
+            </select>
             <label for="categories">Categories</label>
             <select class="form-control" name="categories" id="categories" multiple formControlName="categories">
                 <option [value]="category" *ngFor="let category of categories">{{ category.title }}</option>

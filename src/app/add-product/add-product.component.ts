@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from '../models/category';
+import { User } from '../models/user';
 import { CategoryService } from '../services/category.service';
 import { ProductService } from '../services/product.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-add-product',
@@ -16,6 +18,8 @@ export class AddProductComponent implements OnInit {
 
   categories: Category[];
 
+  users: User[];
+
   errorMessage: string;
 
   productForm: FormGroup = this.formBuilder.group({
@@ -25,6 +29,7 @@ export class AddProductComponent implements OnInit {
     price: [0, Validators.max(1000)],
     imgUrl: [ 'https://matchory.com/assets/corals/images/default_product_image.png', Validators.pattern(/^(http|https):\/\/.*/) ],
     brand: [''],
+    uploader: [null],
     categories: [[]]
   });
 
@@ -32,6 +37,7 @@ export class AddProductComponent implements OnInit {
     private formBuilder: FormBuilder,
     private productService: ProductService,
     private categoryService: CategoryService,
+    private userService: UserService,
     private router: Router,
     private activatedRoute: ActivatedRoute) { }
 
@@ -53,6 +59,7 @@ export class AddProductComponent implements OnInit {
 
   async ngOnInit() {
     this.categories = await this.categoryService.getAllCategories();
+    this.users = await this.userService.getUsers();
     const productId = this.activatedRoute.snapshot.queryParams.id;
 
     if (productId) {

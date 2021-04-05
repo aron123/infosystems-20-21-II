@@ -1,5 +1,6 @@
-import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Category } from './Category';
+import { User } from './User';
 
 @Entity()
 export class Product {
@@ -20,6 +21,12 @@ export class Product {
 
     @Column({ nullable: true })
     brand: string;
+
+    @ManyToOne(type => User, {
+        eager: true,
+        cascade: true
+    })
+    uploader: User;
 
     @ManyToMany(() => Category, category => category.products, {
         eager: true,
