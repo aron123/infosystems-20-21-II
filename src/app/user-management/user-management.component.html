@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+            {{ errorMessage }}
+        </div>
+        <div class="alert alert-success" role="alert" *ngIf="successMessage">
+            {{ successMessage }}
+        </div>
+        <form [formGroup]="userForm">
+            <label for="title">First name</label>
+            <input type="text" class="form-control" id="firstName" formControlName="firstName">
+            <label for="description">Last name</label>
+            <input type="text" class="form-control" id="lastName" formControlName="lastName">
+            <label for="price">Age</label>
+            <input type="number" class="form-control" id="age" formControlName="age">
+            <button class="btn btn-primary mt-2" (click)="saveUser()">Save user</button>
+        </form>
+    </div>
+</div>

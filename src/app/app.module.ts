@@ -10,6 +10,7 @@ import { ProductComponent } from './product-list/product/product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddProductComponent } from './add-product/add-product.component';
 import { CategoryManagementComponent } from './category-management/category-management.component';
+import { UserManagementComponent } from './user-management/user-management.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CategoryManagementComponent } from './category-management/category-mana
     ShoppingCartComponent,
     ProductComponent,
     AddProductComponent,
-    CategoryManagementComponent
+    CategoryManagementComponent,
+    UserManagementComponent
   ],
   imports: [
     BrowserModule,

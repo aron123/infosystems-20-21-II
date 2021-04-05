@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddProductComponent } from './add-product/add-product.component';
 import { CategoryManagementComponent } from './category-management/category-management.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { UserManagementComponent } from './user-management/user-management.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'categories',
     component: CategoryManagementComponent
+  },
+  {
+    path: 'users',
+    component: UserManagementComponent
   }
 ];
 
