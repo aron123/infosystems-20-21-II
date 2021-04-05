@@ -1,7 +1,8 @@
 # Informatikai rendszerek építése 2020/21 II. félév
 
-## Beadandóval kapcsolatos követelmények
+## Beadandó
 - [Követelmények](https://github.com/aron123/infosystems-20-21-II/tree/week08/midterm-assignment)
+- [Üres projekt](https://github.com/aron123/infosystems-20-21-II/tree/week10/starter-project)
 
 ## 1. hét
 Szoftveres követelmények ismertetése, telepítése.
@@ -76,3 +77,8 @@ Az ORM technika. Mintapéldák a `TypeORM` eszköz használatára (entitások, r
 
 - Egyéb anyagok:
   - [TypeORM documentation](https://typeorm.io/)
+
+## 9. hét
+Elmaradt (húsvéthétfő)
+
+## 10. hét
