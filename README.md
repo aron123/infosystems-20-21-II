@@ -82,3 +82,12 @@ Az ORM technika. Mintapéldák a `TypeORM` eszköz használatára (entitások, r
 Elmaradt (húsvéthétfő)
 
 ## 10. hét
+Kliens és szerver összekötése. TypeORM relációk (1:N, N:M) gyakorlása.
+
+- Forráskódok, tananyagok:
+  - [Termék adatbázis](https://github.com/aron123/infosystems-20-21-II/tree/week03/products-json) (SQL dump)
+  - [Webáruház](https://github.com/aron123/infosystems-20-21-II/tree/week03/webshop): Kliens-szerver kommunikáció, felhasználó <-> termék összerendelés (1:N reláció), termék <-> kategória összerendelés (N:M reláció)
+  - [Promise](about:blank)
+
+- Egyéb anyagok:
+  - [TypeORM relations](https://typeorm.io/#/relations)
