@@ -21,7 +21,7 @@ A Promise használata a következőképpen néz ki:
 ``` js
 function doTheHeavyWork(delayMs, ok) {
   return new Promise((resolve, reject) => {
-    etTimeout(() => ok ? resolve('OK') : reject('ERROR'), delayMs);
+    setTimeout(() => ok ? resolve('OK') : reject('ERROR'), delayMs);
   });
 }
 
