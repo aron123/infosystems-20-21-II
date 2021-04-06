@@ -1,78 +1,120 @@
-# Informatikai rendszerek építése 2020/21 II. félév
+# Aszinkron végrehajtás Promise-okkal
 
-## Beadandóval kapcsolatos követelmények
-- [Követelmények](https://github.com/aron123/infosystems-20-21-II/tree/week08/midterm-assignment)
+„Szinkronnak nevezzük az olyan utasításokat, amelyek arra késztetik a számítógépet, hogy ameddig az egyik utasítás le nem fut, addig más utasítások ne tudjanak lefutni (feltartva a még nem végrehajtott utasítások végrehajtását).
 
-## 1. hét
-Szoftveres követelmények ismertetése, telepítése.
+Aszinkronnak nevezzük az olyan utasításokat, amelyek arra késztetik a számítógépet, hogy ameddig az aszinkron utasítás le nem fut, addig más utasításokat is tudjon futtatni párhuzamosan. Párhuzamos programozás esetén időigényes utasítássorozat futtatása esetén nem kell szükségszerűen egyszerre egy utasítást futtatni, feltéve ha adottak a megfelelő körülmények.” [[1]](http://www.inf.u-szeged.hu/~tarib/javascript/aszinkron.html#callback-fuggveny-promise-objektum-aszinkron-javascript-parhuzamos-programozas)
 
-- [Szoftverkövetelmények](https://github.com/aron123/infosystems-20-21-II/tree/week01/requirements)
+Az aszinkron végrehajtás megvalósítása JavaScriptben többféleképpen történhet. Régen callback függvényeket alkalmaztak erre a célra, 2012-es megjelenésétől kezdve azonban a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) objektum használata a jellemző.
 
-## 2. hét
-Node Package Manager (npm) használata, Bootstrap telepítése, grid rendszer használata, sztring interpoláció, strukturális direktívák (`*ngIf`, `*ngFor`).
+## Promise objektum
 
-- Forráskódok:
-  - [Egy komponens programozása](https://github.com/aron123/infosystems-20-21-II/tree/week02/intro) 
+A Promise objektum egy művelet végrehajtásának az ígéretét szimbolizálja. A művelet eredményét a létrehozás pillanatában még nem ismerjük.
 
-- Egyéb anyagok:
-  - [Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
-  - [Emmet abbreviation](https://docs.emmet.io/abbreviations/syntax/)
-  - [Emmet in Visual Studio Code](https://code.visualstudio.com/docs/editor/emmet)
+Egy Promise objektumnak 3 állapota lehet:
 
-## 3. hét
-TypeScript típusosságának használata, komponensek létrehozása (`ng generate` parancs), komponensek közötti együttműködés (`@Input`, `@Output` dekorátorok, `EventEmitter` osztály használata).
+* `pending`: Kezdeti állapot, a művelet végrehajtása folyamatban van.
+* `fulfilled`: A művelet sikeresen végre lett hajtva.
+* `rejected`: A művelet végrehajtása során hiba keletkezett.
 
-- Forráskódok:
-  - [Szavazás](https://github.com/aron123/infosystems-20-21-II/tree/week03/votes)
-  - [Szemantikus verziókezelés](https://github.com/aron123/infosystems-20-21-II/tree/week03/semantic-versioning)
-  - [Termék adatbázis](https://github.com/aron123/infosystems-20-21-II/tree/week03/products-json)
-  - [Webáruház](https://github.com/aron123/infosystems-20-21-II/tree/week03/webshop)
+A Promise használata a következőképpen néz ki:
 
-- Egyéb anyagok:
-  - [Angular Components Overview](https://angular.io/guide/component-overview)
-  - [Component interaction](https://angular.io/guide/component-interaction)
-  - [Sharing data between child and parent components](https://angular.io/guide/inputs-outputs)
+``` js
+function doTheHeavyWork(delayMs, ok) {
+  return new Promise((resolve, reject) => {
+    etTimeout(() => ok ? resolve('OK') : reject('ERROR'), delayMs);
+  });
+}
 
-## 4. hét
-`HttpClientModule` használata, service-k célja, létrehozása (`ng generate service` parancs), aszinkron függvények, HTTP kommunikáció. Angular komponensek életciklusa.
+doTheHeavyWork(2000, true)
+  .then(value => console.log('1:', value));
 
-- Forráskódok:
-  - [Webáruház](https://github.com/aron123/infosystems-20-21-II/tree/week03/webshop): JSON fájl betöltése
+doTheHeavyWork(2000, false)
+  .then(value => console.log('2:', value))
+  .catch(err => console.error('Error: ', err));
+```
 
-- Egyéb anyagok:
-  - [Angular Lifecycle Hooks](https://codecraft.tv/courses/angular/components/lifecycle-hooks/)
-  - [Using Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
+A `doTheHeavyWork` függvény paraméterként megkapja azt az időt, ameddig dolgoznia kell, illetve azt, hogy sikerrel vagy hibával kell-e visszatérnie. A függvény visszatérési értéke egy Promise objektum.
 
-## 5. hét
-Formok építése `FormsModule` és `ReactiveFormsModule` használatával.
+A sikeres végrehajtás során előállított értéket a Promise `.then()` metódusával, a keletkezett hibát a `.catch()` metódussal lehet kezelni. Ezeknek a metódusoknak a paramétere egy-egy kezelő függvény, ami siker vagy hiba esetén lefut.
 
-- Forráskódok:
-  - [Webáruház](https://github.com/aron123/infosystems-20-21-II/tree/week03/webshop): terméklista megjelenítése, kereső létrehozása, új termék felvitele
+A Promise objektumok aszinkron működését a következő kód szemlélteti:
 
-- Egyéb anyagok:
-  - [Reactive Forms](https://angular.io/guide/reactive-forms)
+``` js
+doTheHeavyWork(2000, true).then(value => console.log(value));
+console.log(1);
+console.log(2);
+console.log(3);
+console.log(4);
+console.log(5);
 
-## 6. hét
-Elmaradt (március 15.)
+/*
+ * Output:
+ * 1
+ * 2
+ * 3
+ * 4
+ * 5
+ * OK
+ */
+```
 
-## 7. hét
-Reaktív formok validálása. Az Angular Router célja és konfigurálása. A HTTP protokoll. `Express.js` szerver bevezetése.
+A Promise objektum létrehozása után a kód további sorai kezdenek el futni (kiírásra kerülnek a számok 1-től 5-ig), majd amikor 2 mp elteltével az időigényesebb művelet végrehajtása befejeződik, kiírásra kerül annak az eredménye is.
 
-- Forráskódok, tananyagok:
-  - [Webáruház](https://github.com/aron123/infosystems-20-21-II/tree/week03/webshop): menürendszer kialakítása, termékfelviteli űrlap validációja, kezdetleges szerver hozzáadása
-  - [HTTP-protokoll](https://github.com/aron123/infosystems-20-21-II/tree/week07/http)
-  - [Backend bevezetés](https://github.com/aron123/infosystems-20-21-II/tree/week07/backend-basics)
+## async / await kulcsszavak
 
-- Egyéb anyagok:
-  - [Routing in SPAs](https://dev.to/marcomonsanto/routing-in-spas-173i)
-  - [In-app navigation: routing to views](https://angular.io/guide/router)
+2017-től a JavaScript a Promise-ok kezeléséhez a `.then()` és `.catch()` metódusokon kívül szintaktikai támogatást is biztosít: az `async` , `await` kulcsszavakat.
 
-## 8. hét
-Az ORM technika. Mintapéldák a `TypeORM` eszköz használatára (entitások, relációk, migrációk).
+``` js
+async function doWork() {
+  try {
+    const value = await doTheHeavyWork(2000, true);
+    console.log(value);
+    console.log(1);
+    console.log(2);
+    console.log(3);
+    console.log(4);
+    console.log(5);
+  } catch (err) {
+    console.error('Error happened:', err);
+  }
+}
 
-- Forráskódok, tananyagok:
-  - [TypeORM gyakorlat](http://ait2.iit.uni-miskolc.hu/oktatas/doku.php?id=tanszek:oktatas:informatikai_rendszerek_epitese:type_orm) (Dr. Nehéz Károly anyaga)
-  - [Webáruház](https://github.com/aron123/infosystems-20-21-II/tree/week03/webshop): backend projekt struktúrájának kialakítása, TypeORM konfigurációja, adatbázist kezelő controllerek implementálása
+doWork();
 
-- Egyéb anyagok:
-  - [TypeORM documentation](https://typeorm.io/)
+/*
+ * Output:
+ * OK
+ * 1
+ * 2
+ * 3
+ * 4
+ * 5
+ */
+```
+
+`await` kulcsszó használatakor a programkód további sorai nem futhatnak addig, ameddig az `await` kulcsszó mögött álló Promise sikerre nem futott. Az `await` kulcsszót alkalmazó függvényeket `async` módosítóval kell ellátni.
+
+Az `await doTheHeavyWork(2000, true)` kifejezés egy try-catch blokkban van elhelyezve. Amennyiben hiba történik, a catch ág kerül futtatásra, a Promise által visszaküldött hibával, ahogy az a következő példában is látható:
+
+``` js
+async function doWork2() {
+  try {
+    const value = await doTheHeavyWork(2000, false);
+    console.log(value);
+    console.log(1);
+    console.log(2);
+    console.log(3);
+    console.log(4);
+    console.log(5);
+  } catch (err) {
+    console.error('Error happened:', err);
+  }
+}
+
+doWork2();
+
+/*
+ * Output:
+ * Error happened: ERROR
+ */
+```
