@@ -14,8 +14,6 @@ import { UserService } from '../services/user.service';
 })
 export class AddProductComponent implements OnInit {
 
-  isNewProduct: boolean = true;
-
   categories: Category[];
 
   users: User[];
@@ -63,7 +61,6 @@ export class AddProductComponent implements OnInit {
     const productId = this.activatedRoute.snapshot.queryParams.id;
 
     if (productId) {
-      this.isNewProduct = false;
       const product = await this.productService.getProductWithId(productId);
       this.productForm.setValue(product);
     }
