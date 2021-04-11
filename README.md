@@ -90,4 +90,5 @@ Kliens és szerver összekötése. TypeORM relációk (1:N, N:M) gyakorlása.
   - [Webáruház](https://github.com/aron123/infosystems-20-21-II/tree/week03/webshop): Kliens-szerver kommunikáció, felhasználó <-> termék összerendelés (1:N reláció), termék <-> kategória összerendelés (N:M reláció)
 
 - Egyéb anyagok:
+  - [Angular - Proxying to a backend server](https://angular.io/guide/build#proxying-to-a-backend-server)
   - [TypeORM relations](https://typeorm.io/#/relations)
