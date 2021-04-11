@@ -1,4 +1,5 @@
 import { Category } from "./category";
+import { User } from "./user";
 
 export interface Product {
     id: number;
@@ -8,4 +9,5 @@ export interface Product {
     imgUrl: string;
     brand: string;
     categories: Category[];
+    uploader: User;
 }

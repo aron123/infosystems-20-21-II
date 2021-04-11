@@ -14,6 +14,7 @@ export class ProductController extends Controller {
                 .createQueryBuilder('product')
                 .where("product.title LIKE CONCAT('%', :search, '%')", { search })
                 .leftJoinAndSelect('product.categories', 'category')
+                .leftJoinAndSelect('product.uploader', 'uploader')
                 .getMany();
             res.json(entities);
         } catch (err) {
