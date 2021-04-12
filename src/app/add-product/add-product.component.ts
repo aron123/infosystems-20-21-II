@@ -77,4 +77,11 @@ export class AddProductComponent implements OnInit {
     }
   }
 
+  compareUsers(user1: User, user2: User): boolean {
+    return user1 && user2 && user1.id == user2.id;
+  }
+
+  compareCategories(cat1: Category, cat2: Category): boolean {
+    return cat1 && cat2 && cat1.id == cat2.id;
+  }
 }
