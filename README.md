@@ -82,7 +82,7 @@ Az ORM technika. Mintapéldák a `TypeORM` eszköz használatára (entitások, r
 Elmaradt (húsvéthétfő)
 
 ## 10. hét
-Kliens és szerver összekötése. TypeORM relációk (1:N, N:M) gyakorlása.
+Kliens és szerver összekötése. TypeORM relációk (1:N, N:M) gyakorlása. Routing paraméterek (`ActivatedRouteSnapshot`).
 
 - Forráskódok, tananyagok:
   - [Termék adatbázis](https://github.com/aron123/infosystems-20-21-II/tree/week03/products-json) (SQL dump)
@@ -92,3 +92,4 @@ Kliens és szerver összekötése. TypeORM relációk (1:N, N:M) gyakorlása.
 - Egyéb anyagok:
   - [Angular - Proxying to a backend server](https://angular.io/guide/build#proxying-to-a-backend-server)
   - [TypeORM relations](https://typeorm.io/#/relations)
+  - [ActivatedRouteSnapshot](https://angular.io/api/router/ActivatedRouteSnapshot)
