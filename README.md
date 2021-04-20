@@ -93,3 +93,6 @@ Kliens és szerver összekötése. TypeORM relációk (1:N, N:M) gyakorlása. Ro
   - [Angular - Proxying to a backend server](https://angular.io/guide/build#proxying-to-a-backend-server)
   - [TypeORM relations](https://typeorm.io/#/relations)
   - [ActivatedRouteSnapshot](https://angular.io/api/router/ActivatedRouteSnapshot)
+
+## Gyakorlati anyag
+[Itt érhető el az órákon elkészített webshop alkalmazás.](https://github.com/aron123/infosystems-20-21-II/tree/week11/practice-clone)
