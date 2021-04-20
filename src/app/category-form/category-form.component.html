@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-md-6">
+        <input class="form-control" [(ngModel)]="newCategoryTitle">
+        <button class="btn btn-primary" (click)="createCategory()">Add category</button>
+    </div>
+    <div class="col-md-6">
+        <ul>
+            <li *ngFor="let category of categories">
+                {{ category.title }}
+                <button class="btn btn-sm btn-danger" (click)="deleteCategory(category.id)">Delete</button>
+            </li>
+        </ul>
+    </div>
+</div>

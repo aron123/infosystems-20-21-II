@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-md-6">
+        <form [formGroup]="productForm">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" formControlName="title">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" id="description" formControlName="description">
+            <label for="price">Price</label>
+            <input type="number" class="form-control" id="price" formControlName="price">
+            <div class="text-danger" *ngIf="price.invalid && (price.dirty || price.touched)">
+                <small *ngIf="price.errors.min">Price must be greater than or equal to 1$.</small>
+            </div>
+            <label for="imgUrl">Image URL</label>
+            <input type="text" class="form-control" id="imgUrl" formControlName="imgUrl">
+            <div class="text-danger" *ngIf="imgUrl.invalid  && (imgUrl.dirty || imgUrl.touched)">
+                <small *ngIf="imgUrl.errors.pattern">Image URL must be a valid URL.</small>
+            </div>
+            <label for="brand">Brand</label>
+            <input type="text" class="form-control" id="brand" formControlName="brand">
+            <label for="uploader">Uploader</label>
+            <select [compareWith]="compareUsers" class="form-control" id="uploader" formControlName="uploader">
+                <option *ngFor="let user of users" [ngValue]="user">{{ user.firstName }} {{ user.lastName }}</option>
+            </select>
+            <label for="categories">Categories</label>
+            <select [compareWith]="compareCategories" class="form-control" id="categories" formControlName="categories"
+                multiple>
+                <option *ngFor="let category of categories" [ngValue]="category">{{ category.title }}</option>
+            </select>
+            <button class="btn btn-primary mt-2" (click)="addProduct()" [disabled]="productForm.invalid">
+                Save product
+            </button>
+        </form>
+    </div>
+</div>
